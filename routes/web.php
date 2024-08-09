@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AsignarpermisoUsersController;
+use App\Http\Controllers\PermisoController;
+use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +31,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+
+    // Route::middleware(['role:administrador'])->group(function () {
+        Route::resource('/roles', RolesController::class)->names('roles');
+        Route::resource('/permisos', PermisoController::class)->names('permisos');
+        Route::resource('/userspermisos', AsignarpermisoUsersController::class)->names('userspermisos');
+    // });
 });
