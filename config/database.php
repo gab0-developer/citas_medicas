@@ -74,7 +74,8 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
-            'search_path' => 'public',
+            'search_path' => 'citmedic',
+            'schema' => 'citmedic',
             'sslmode' => 'prefer',
         ],
 
