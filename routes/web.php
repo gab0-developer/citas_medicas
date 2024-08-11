@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AsignarpermisoUsersController;
+use App\Http\Controllers\MunicpioController;
+use App\Http\Controllers\PacienteUserController;
+use App\Http\Controllers\ParroquiaController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +23,15 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+// FORMULARIO DE REGISTRO DE PACIENTE
+Route::resource('/userpaciente', PacienteUserController::class)->names('paciente');
+
+// RUTA PARA OBTENER LISTADO DE MUNIPIO Y PARROQUIA
+Route::get('/municipio/{estadoId}', [MunicpioController::class,'getMunicipio']);
+Route::get('/parroquia/{municipioId}', [ParroquiaController::class,'getParroquia']);
+
+
+// VALIDAR AUTENTICACION DEL USUARIO
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
