@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('estado_id');
             $table->integer('municipio_id');
             $table->integer('parroquia_id');
+            $table->integer('cedula')->unique();
         });
     }
 

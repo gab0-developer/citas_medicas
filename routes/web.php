@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\AsignarpermisoUsersController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DoctorUserController;
 use App\Http\Controllers\MunicpioController;
 use App\Http\Controllers\PacienteUserController;
 use App\Http\Controllers\ParroquiaController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\SolicitudCitaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,9 +48,21 @@ Route::middleware([
     })->name('dashboard');
 
 
-    // Route::middleware(['role:administrador'])->group(function () {
+    Route::middleware(['role:administrador'])->group(function () {
         Route::resource('/roles', RolesController::class)->names('roles');
         Route::resource('/permisos', PermisoController::class)->names('permisos');
         Route::resource('/userspermisos', AsignarpermisoUsersController::class)->names('userspermisos');
-    // });
+        Route::resource('/doctores', DoctorController::class)->names('doctor');
+    });
+    Route::middleware(['role:administrador|paciente'])->group(function () {
+        Route::resource('/solicitudcita', SolicitudCitaController::class)->names('solicitudcita');
+    });
+    Route::middleware(['role:administrador|doctor'])->group(function () {
+        Route::get('/doctoruser', [DoctorUserController::class,'index'])->name('doctoruser.index');
+        // Route::post('/doctoruser', [DoctorUserController::class,'create'])->name('doctoruser.post');
+        // Route::update('/doctoruser', [DoctorUserController::class,'update'])->name('doctoruser.update');
+        // Route::delete('/doctoruser', [DoctorUserController::class,'destroy'])->name('doctoruser.delete');
+    });
 });
+
+

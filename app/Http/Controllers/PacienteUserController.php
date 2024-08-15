@@ -24,7 +24,7 @@ class PacienteUserController extends Controller
         $municipios = Municipio::all();
         $parroquias = Parroquia::all();
 
-        return view('paciente.index', compact('estados', 'municipios', 'parroquias'));
+        return view('paciente_login.index', compact('estados', 'municipios', 'parroquias'));
     }
 
     /**
@@ -42,6 +42,7 @@ class PacienteUserController extends Controller
     public function store(RegisteruserRequest $request)
     {
         //
+        // return $request;
         $ciudadano = Ciudadano::create([
             'nombre_completo' => $request->nombre_paciente,
             'apellido_completo' => $request->apellido_paciente,
@@ -59,14 +60,12 @@ class PacienteUserController extends Controller
             'email' => $request->email_paciente,
             'password' => Hash::make($request->password_confirmation)
         ]);
-
-        // obtener el ultimo ciudadano registrado
-        $lastciudadano = $ciudadano->id;
-        $lastuser = $user->id;
+        // asignar rol paciente
+        $user->roles()->sync($request->permiso_paciente);
         // registrar ID del ciudadano registrado en paciente 
         $paciente = Paciente::create([
-            'ciudadano_id' => $lastciudadano,
-            'user_id' => $lastuser
+            'ciudadano_id' => $ciudadano->id,
+            'user_id' => $user->id
         ]);
 
         return redirect('/');

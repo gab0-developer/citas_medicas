@@ -35,7 +35,7 @@ class SolicitudCita extends Model
 
 	protected $casts = [
 		'fecha_cita' => 'datetime',
-		'hora_cita' => 'time without time zone',
+		'hora_cita' => 'string',
 		'tipocita_id' => 'int',
 		'estatu_id' => 'int',
 		'paciente_id' => 'int',
