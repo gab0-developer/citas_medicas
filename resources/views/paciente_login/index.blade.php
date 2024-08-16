@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 
 <div class="container mt-3">
-    @include('paciente.register')
+    @include('paciente_login.register')
 </div>
 
 

@@ -329,6 +329,22 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Realizar cita medica',
+            'route' => 'solicitudcita.index',
+            // 'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Citas medicas',
+            'route' => 'doctoruser.index',
+            // 'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Doctores',
+            'route' => 'doctor.index',
+            // 'icon' => 'fas fa-fw fa-user',
+            'role' => 'administrador'
+        ],
+        [
             'text' => 'profile',
             // 'route' => 'admin/settings',
             'url' => 'admin/settings',
@@ -339,18 +355,42 @@ return [
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'ADMINISTRACIÓN DE USUARIOS',
+            'can' => 'admin avanzada'
+            
+        ],
         [
-            'text' => 'multilevel',
+            'text' => 'Roles y permisos',
             'icon' => 'fas fa-fw fa-share',
+            'can' => 'admin avanzada',
             'submenu' => [
+                // [
+                //     'text' => 'level_one',
+                //     'url' => '#',
+                // ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Usuarios',
+                    'route' => 'userspermisos.index',
+                    'icon' => 'fas fa-fw fa-user',
+                    'can' => 'admin avanzada'
+                ],
+                [
+                    'text' => 'Roles',
+                    'route' => 'roles.index',
+                    // 'icon' => 'fas fa-fw fa-user',
+                    'can' => 'admin avanzada'
+                ],
+                [
+                    'text' => 'Permisos',
+                    'route' => 'permisos.index',
+                    // 'icon' => 'fas fa-fw fa-user',
+                    'can' => 'admin avanzada'
                 ],
                 [
                     'text' => 'level_one',
                     'url' => '#',
                     'submenu' => [
+                        'can' => 'admin avanzada',
                         [
                             'text' => 'level_two',
                             'url' => '#',

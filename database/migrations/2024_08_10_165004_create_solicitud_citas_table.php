@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('solicitud_citas', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_cita');
-            $table->time('hora_cita');
+            $table->string('hora_cita',10);
             $table->integer('tipocita_id');
             $table->integer('estatu_id');
             $table->integer('paciente_id');
             $table->integer('especialidad_tipocita_id');
             $table->timestamp('fecha_registro')->nullable()->useCurrent();
+            $table->string('observacion',100);
         });
     }
 

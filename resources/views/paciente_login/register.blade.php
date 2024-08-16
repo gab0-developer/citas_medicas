@@ -18,6 +18,9 @@
                 <hr>
             </div>
             <div class="container-inputs d-flex">
+                <div class="input-group mb-3" style="display:none">
+                    <input type="text" name="permiso_paciente" class="form-control" placeholder="permiso-paciente" aria-label="Nombre completo" aria-describedby="basic-addon1" value="2" style="display:none" hidden>
+                </div>
                 
                 <div class="input-group mb-3 mr-3">
                     <div class="input-group mb-3">

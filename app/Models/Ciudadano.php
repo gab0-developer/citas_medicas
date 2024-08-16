@@ -42,7 +42,8 @@ class Ciudadano extends Model
 		'fecha_nacimiento' => 'datetime',
 		'estado_id' => 'int',
 		'municipio_id' => 'int',
-		'parroquia_id' => 'int'
+		'parroquia_id' => 'int',
+		'cedula' => 'int'
 	];
 
 	protected $fillable = [
@@ -55,7 +56,8 @@ class Ciudadano extends Model
 		'nro_tlf_secundario',
 		'estado_id',
 		'municipio_id',
-		'parroquia_id'
+		'parroquia_id',
+		'cedula'
 	];
 
 	public function estado()

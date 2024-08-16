@@ -35,12 +35,13 @@ class SolicitudCita extends Model
 
 	protected $casts = [
 		'fecha_cita' => 'datetime',
-		'hora_cita' => 'time without time zone',
+		'hora_cita' => 'string',
 		'tipocita_id' => 'int',
 		'estatu_id' => 'int',
 		'paciente_id' => 'int',
 		'especialidad_tipocita_id' => 'int',
-		'fecha_registro' => 'datetime'
+		'fecha_registro' => 'datetime',
+		'observacion' => 'string'
 	];
 
 	protected $fillable = [
@@ -50,7 +51,8 @@ class SolicitudCita extends Model
 		'estatu_id',
 		'paciente_id',
 		'especialidad_tipocita_id',
-		'fecha_registro'
+		'fecha_registro',
+		'observacion'
 	];
 
 	public function tipocita()
