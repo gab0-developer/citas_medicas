@@ -66,17 +66,21 @@
                                 data-target="#editModal-modal-xl"
                                 data-url="{{ route('doctoruser.edit', $citamedica->id) }}" 
                                 {{-- data-update="{{ route('doctoruser.update', $citamedica->id) }}"  --}}
-                                title="Edit">
-                                <i class="fa fa-lg fa-fw fa-pen"></i>
-                            </button>
-                            
-                            {{-- <form action="{{route('doctor.destroy',$doctor->id_ciudadano)}}" method="post" class="form_eliminater">
                                 @csrf
                                 @method('delete')
                                 {!! $btnDelete !!}
                             </form> --}}
 
                             {{-- <button class="btn btn-xs btn-default text-primary shadow btn-details" 
+=======
+                            <form action="{{route('doctor.destroy',$doctor->id_ciudadano)}}" method="post" class="form_eliminater">
+                                @csrf
+                                @method('delete')
+                                {!! $btnDelete !!}
+                            </form>
+
+                            <button class="btn btn-xs btn-default text-primary shadow btn-details" 
+>>>>>>> ad746252bbaeb9cb7e327faa64764c2203217830
                                 
                                 data-url="{{ route('doctor.show', $doctor->id_ciudadano) }}" 
                                 title="Details">
