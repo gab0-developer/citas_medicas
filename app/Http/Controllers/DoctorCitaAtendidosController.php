@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class DoctorUserController extends Controller
+
+class DoctorCitaAtendidosController extends Controller
 {
     //
     public function index(){
@@ -30,12 +31,12 @@ class DoctorUserController extends Controller
 
         // view posgtres 
         $viewPostgres = new Viewpostgres();
-        $citasmedicas_view = $viewPostgres->citasmedicas_estatus_view($especialidad_ids,2);
+        $citasmedicas_view = $viewPostgres->citasmedicas_estatus_view($especialidad_ids,1);
         // $citasmedicas_view = $viewPostgres->citasmedicas_view($especialidad_ids,$userAuth['roles'][0]->name);
         // return $citasmedicas_view;
 
 
-        return view('doctoruser.index',compact('citasmedicas_view'));
+        return view('doctorcitaatendido.index',compact('citasmedicas_view'));
     }
     public function edit(string $id)
     {
@@ -89,6 +90,4 @@ class DoctorUserController extends Controller
         }
 
     }
-
-   
 }

@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pacientes_ausentes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('paciente_id');
+        Schema::table('pacientes_ausentes', function (Blueprint $table) {
+            $table->foreign(['paciente_id'], 'fk_paciente')->references(['id'])->on('pacientes')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pacientes_ausentes');
+        Schema::table('pacientes_ausentes', function (Blueprint $table) {
+            $table->dropForeign('fk_paciente');
+        });
     }
 };

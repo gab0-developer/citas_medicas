@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
+
 use App\Http\Requests\DoctorRequest;
 use App\Models\Ciudadano;
 use App\Models\Doctore;
@@ -15,8 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-
-class DoctorController extends Controller
+class DoctorAdminController extends Controller
 {
     /**
      * Display a listing of the resource.

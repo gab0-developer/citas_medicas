@@ -24,8 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $estado_id
  * @property int $municipio_id
  * @property int $parroquia_id
- * @property Carbon|null $fecha_registro
- * @property int|null $cedula
  * 
  * @property Estado $estado
  * @property Municipio $municipio
@@ -45,7 +43,6 @@ class Ciudadano extends Model
 		'estado_id' => 'int',
 		'municipio_id' => 'int',
 		'parroquia_id' => 'int',
-		'fecha_registro' => 'datetime',
 		'cedula' => 'int'
 	];
 
@@ -60,7 +57,6 @@ class Ciudadano extends Model
 		'estado_id',
 		'municipio_id',
 		'parroquia_id',
-		'fecha_registro',
 		'cedula'
 	];
 

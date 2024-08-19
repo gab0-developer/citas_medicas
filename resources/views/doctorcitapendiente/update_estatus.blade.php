@@ -37,7 +37,7 @@
                 <div class="modal-body">
             
                     <div class="input-group mb-3" style="display:none">
-                        <input type="text" name="user_id" id="user_id" class="form-control" placeholder="permiso-paciente" aria-label="id user" aria-describedby="basic-addon1" style="display:none" hidden>
+                        <input type="text" name="paciente_id" id="paciente_id" class="form-control" placeholder="permiso-paciente" aria-label="id user" aria-describedby="basic-addon1" style="display:none" hidden>
                     </div>
                     <div class="sub-title">
                         <h6><strong class="text text-success">Información de la cita del paciente</strong></h6>
@@ -46,7 +46,7 @@
 
                     <div class="container-inputs d-flex">
                         {{-- <div class="input-group mb-3" style="display:none">
-                            <input type="text" name="rol_doctor" class="form-control" placeholder="rol-doctor" aria-label="rol doctor" aria-describedby="basic-addon1" value="3" style="display:none" hidden>
+                            <input type="text" name="paciente_id" id="paciente_id" class="form-control" placeholder="rol-doctor" aria-label="rol doctor" aria-describedby="basic-addon1" value="3" style="display:none" hidden>
                         </div> --}}
                         <div class="input-group mb-3 mr-3">
                             <div class="input-group mb-3 d-block">
@@ -125,18 +125,21 @@
                     <div class="container-inputs d-flex">
                         <div class="input-group mb-3 mr-3">
                             <div class="input-group mb-3 d-block">
-                                <label for="fecha_nacimiento_doctor" class="text-info">Estado:</label>
+                                <label for="estatus_cita" class="text-info">Estado de la cita:</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar"></i></span>
-                                    </div>
-                                    <input type="date" name="fecha_nacimiento_doctor" id="fecha_nacimiento_doctor" class="form-control"  aria-label="Fecha de nacimiento" aria-describedby="basic-addon1" value="{{ old('fecha_nacimiento_doctor') }}" >
+                                    {{-- AIGNANDO VALOR CON JQUERY DEL INDEX --}}
+                                    <select class="form-control" name="estatus_cita" id="estatus_cita">
+                                        
+                                    </select>
                                 </div>
                                 {{-- <p>message error</p> --}}
-                                @error('fecha_nacimiento_doctor') {{-- indicamos el nombre del campo --}}
+                                <div id="mesagge_delete_cita" style="display: none">
+                                    <p class="text text-danger"><strong>La cita será eliminada por la ausencia del paciente</strong></p>
+                                </div>
+                                @error('estatus_cita') {{-- indicamos el nombre del campo --}}
                                     {{-- indicamos el mensaje de error  --}}
                                     <p style="color:red;">{{$message}}</p>
-                                    @enderror
+                                @enderror
                             </div>
                         </div>
                         
@@ -144,12 +147,12 @@
                     <div class="container-inputs d-flex">
                         <div class="input-group mb-3">
                             <div class="input-group mb-3 d-block">
-                                <label for="sexo_doctor" class="text-info">Observación :</label>
+                                <label for="observacion_cita" class="text-info">Observación :</label>
                                 <div class="input-group">
-                                    <textarea class="form-control" name="observacion" id="observacion" rows="3"></textarea>
+                                    <textarea class="form-control observacion_cita" name="observacion_cita" id="observacion_cita" rows="3"></textarea>
                                 </div>
                                 {{-- <p>message error</p> --}}
-                                @error('sexo_doctor') {{-- indicamos el nombre del campo --}}
+                                @error('observacion_cita') {{-- indicamos el nombre del campo --}}
                                     {{-- indicamos el mensaje de error  --}}
                                     <p style="color:red;">{{$message}}</p>
                                 @enderror

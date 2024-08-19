@@ -20,8 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property Ciudadano $ciudadano
  * @property User $user
+ * @property PacientesAusentes $pacientes_ausentes
  * @property Collection|SolicitudCita[] $solicitud_citas
- * @property Collection|PacientesAusente[] $pacientes_ausentes
  *
  * @package App\Models
  */
@@ -37,6 +37,7 @@ class Paciente extends Model
 	];
 
 	protected $fillable = [
+		'id',
 		'ciudadano_id',
 		'user_id',
 		'fecha_registro'
@@ -56,7 +57,6 @@ class Paciente extends Model
 	{
 		return $this->hasMany(SolicitudCita::class);
 	}
-
 	public function pacientes_ausentes()
 	{
 		return $this->hasMany(PacientesAusente::class);

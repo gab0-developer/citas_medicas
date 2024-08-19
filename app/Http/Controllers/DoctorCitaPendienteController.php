@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class DoctorUserController extends Controller
+class DoctorCitaPendienteController extends Controller
 {
     //
     public function index(){
@@ -35,7 +35,7 @@ class DoctorUserController extends Controller
         // return $citasmedicas_view;
 
 
-        return view('doctoruser.index',compact('citasmedicas_view'));
+        return view('doctorcitapendiente.index',compact('citasmedicas_view'));
     }
     public function edit(string $id)
     {
@@ -89,6 +89,4 @@ class DoctorUserController extends Controller
         }
 
     }
-
-   
 }

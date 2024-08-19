@@ -14,13 +14,12 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property Carbon $fecha_cita
- * @property string $hora_cita
+ * @property time without time zone $hora_cita
  * @property int $tipocita_id
  * @property int $estatu_id
  * @property int $paciente_id
  * @property int $especialidad_tipocita_id
  * @property Carbon|null $fecha_registro
- * @property string|null $observacion
  * 
  * @property Tipocita $tipocita
  * @property Estatus $estatus
@@ -36,11 +35,13 @@ class SolicitudCita extends Model
 
 	protected $casts = [
 		'fecha_cita' => 'datetime',
+		'hora_cita' => 'string',
 		'tipocita_id' => 'int',
 		'estatu_id' => 'int',
 		'paciente_id' => 'int',
 		'especialidad_tipocita_id' => 'int',
-		'fecha_registro' => 'datetime'
+		'fecha_registro' => 'datetime',
+		'observacion' => 'string'
 	];
 
 	protected $fillable = [

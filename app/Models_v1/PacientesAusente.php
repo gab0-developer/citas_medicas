@@ -13,9 +13,9 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property int $paciente_id
- * 
- * @property Paciente $paciente
  *
+ *  @property Paciente $paciente
+ * 
  * @package App\Models
  */
 class PacientesAusente extends Model
@@ -28,9 +28,7 @@ class PacientesAusente extends Model
 	];
 
 	protected $fillable = [
-		'paciente_id',
-		'fecha_registro',
-		'nombre_cita'
+		'paciente_id'
 	];
 
 	public function paciente()

@@ -335,7 +335,7 @@ return [
         ],
         [
             'text' => 'Citas medicas',
-            'route' => 'doctoruser.index',
+            'route' => 'doctorcitapendiente.index',
             // 'icon' => 'fas fa-fw fa-user',
         ],
         [

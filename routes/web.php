@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AsignarpermisoUsersController;
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\DoctorUserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DoctorAdminController;
+use App\Http\Controllers\DoctorCitaAtendidosController;
+use App\Http\Controllers\DoctorCitaPendienteController;
 use App\Http\Controllers\MunicpioController;
 use App\Http\Controllers\PacienteUserController;
 use App\Http\Controllers\ParroquiaController;
@@ -43,26 +45,37 @@ Route::middleware([
     Route::get('/home', function () {
         return view('home');
     })->name('home');
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
 
 
     Route::middleware(['role:administrador'])->group(function () {
         Route::resource('/roles', RolesController::class)->names('roles');
         Route::resource('/permisos', PermisoController::class)->names('permisos');
         Route::resource('/userspermisos', AsignarpermisoUsersController::class)->names('userspermisos');
-        Route::resource('/doctores', DoctorController::class)->names('doctor');
+        Route::resource('/doctores', DoctorAdminController::class)->names('doctor');
+
+        Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index');
     });
     Route::middleware(['role:administrador|paciente'])->group(function () {
         Route::resource('/solicitudcita', SolicitudCitaController::class)->names('solicitudcita');
     });
+    
     Route::middleware(['role:administrador|doctor'])->group(function () {
-        Route::get('/doctoruser', [DoctorUserController::class,'index'])->name('doctoruser.index');
-        // Route::post('/doctoruser', [DoctorUserController::class,'create'])->name('doctoruser.post');
-        Route::get('/doctoruser/{id}', [DoctorUserController::class,'edit'])->name('doctoruser.edit');
-        // Route::update('/doctoruser', [DoctorUserController::class,'update'])->name('doctoruser.update');
-        // Route::delete('/doctoruser', [DoctorUserController::class,'destroy'])->name('doctoruser.delete');
+
+        Route::get('/doctorcitapendiente', [DoctorCitaPendienteController::class,'index'])->name('doctorcitapendiente.index');
+        // Route::post('/doctorcitapendiente', [DoctorCitaPendienteController::class,'create'])->name('doctorcitapendiente.post');
+        Route::get('/doctorcitapendiente/{id}', [DoctorCitaPendienteController::class,'edit'])->name('doctorcitapendiente.edit');
+        Route::put('/doctorcitapendiente/{id}', [DoctorCitaPendienteController::class,'update'])->name('doctorcitapendiente.update');
+        // Route::delete('/doctorcitapendiente', [DoctorCitaPendienteController::class,'destroy'])->name('doctorcitapendiente.delete');
+
+
+        Route::get('/doctorcitaatendidos', [DoctorCitaAtendidosController::class,'index'])->name('doctorcitaatendido.index');
+        // Route::post('/doctorcitaatendidos', [DoctorCitaAtendidosController::class,'create'])->name('doctorcitaatendido.post');
+        Route::get('/doctorcitaatendidos/{id}', [DoctorCitaAtendidosController::class,'edit'])->name('doctorcitaatendido.edit');
+        Route::put('/doctorcitaatendidos/{id}', [DoctorCitaAtendidosController::class,'update'])->name('doctorcitaatendido.update');
+        // Route::delete('/doctorcitaatendidos', [DoctorCitaAtendidosController::class,'destroy'])->name('doctorcitaatendido.delete');
     });
 });
 

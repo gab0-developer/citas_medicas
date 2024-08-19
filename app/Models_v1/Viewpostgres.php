@@ -31,12 +31,6 @@ class Viewpostgres extends Model
         $dataview =DB::table('citas_medicas_view')->where('user_id',$data)->get();
         return  $dataview;
     }
-    public function citasmedicas_estatus_view($data,$estatus)
-    {
-        
-        $dataview =DB::table('citas_medicas_view')->where('especialidad_tipocita_id',$data)->where('estatu_id',$estatus)->get();
-        return  $dataview;
-    }
     public function doctores_view($id_ciudadano = null)
     {
         if ($id_ciudadano == null) {

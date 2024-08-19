@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Citas medicas')
+@section('title', 'Citas medicas atendidas')
 
 @section('content_header')
-    <h1>Gestión de citas medicas</h1>
+    <h1>Gestión de citas medicas atendidas</h1>
 @stop
 
 @section('content')
@@ -11,9 +11,11 @@
     {{-- <div>
         @include('doctor.register_doctor')
     </div> --}}
-    
-    {{-- CITAS REALIZADAS --}}
 
+    {{-- CITAS REALIZADAS --}}
+    <div class="btn-cita-pendientes my-2">
+        <button class="btn btn-danger"><a href="{{route('doctorcitapendiente.index')}}" class="text text-white">Citas pendientes</a></button>
+    </div>
     <div class="card">
         <div class="card-body">
             {{-- <div class="mb-3">
@@ -56,6 +58,8 @@
                         <td>{{$citamedica->hora_cita}}</td>
                         @if ($citamedica->estatu == 'PENDIENTE')
                             <td class="text text-danger">{{$citamedica->estatu}}</td>
+                            @elseif ($citamedica->estatu == 'AUSENTE')
+                                <td style="color: orangered">{{$citamedica->estatu}}</td>
                             @else
                             <td class="text text-success">{{$citamedica->estatu}}</td>
                         @endif
@@ -63,13 +67,13 @@
                             
                             {{-- data-url: Permite mantener la URL asociada con cada botón --}}
                             <button class="btn btn-xs btn-default text-primary shadow btn-edit" 
+                            
                                 data-target="#editModal-modal-xl"
-                                data-url="{{ route('doctoruser.edit', $citamedica->id) }}" 
-                                {{-- data-update="{{ route('doctoruser.update', $citamedica->id) }}"  --}}
-                                @csrf
-                                @method('delete')
-                                {!! $btnDelete !!}
-                            </form> --}}
+                                data-url="{{ route('doctorcitaatendido.edit', $citamedica->id) }}" 
+                                data-update="{{ route('doctorcitaatendido.update', $citamedica->id) }}" >
+                                <i class="fa fa-lg fa-fw fa-pen"></i>
+                                
+                            </button> 
 
                             {{-- <button class="btn btn-xs btn-default text-primary shadow btn-details" 
 =======
@@ -80,7 +84,6 @@
                             </form>
 
                             <button class="btn btn-xs btn-default text-primary shadow btn-details" 
->>>>>>> ad746252bbaeb9cb7e327faa64764c2203217830
                                 
                                 data-url="{{ route('doctor.show', $doctor->id_ciudadano) }}" 
                                 title="Details">
@@ -96,7 +99,7 @@
     </div>
 
     <div>
-        @include('doctoruser.update_estatus')
+        @include('doctorcitaatendido.update_estatus')
         {{-- @include('doctor.show_doctor') --}}
     </div>
     
@@ -129,23 +132,68 @@
             $('.js-example-basic-multiple').select2({
                 theme: "classic"
             });
+
+            $('#estatus_cita').on('change', function(event){
+                console.log('evento change',event.target.value)
+                if (event.target.value == "3") {
+                    $('#mesagge_delete_cita').show()
+                    console.log('La cita eliminada ')
+                }else{
+                    $('#mesagge_delete_cita').hide()
+                    console.log('La cita no eliminada')
+                }
+            })
             // ---------EVENTO BOTON DE EDITAR--------------------------
             $('.btn-edit').on('click', function(event) {
                 event.preventDefault();
                 var url = $(this).data('url');
-                // var update = $(this).data('update');
+                var update = $(this).data('update');
+                // console.log('update',update)
     
                 // Realiza una solicitud AJAX para obtener los datos del rol
                 $.get(url, function(data) {
                     let data_cita = data.data_cita[0]; // Array de todos los datos del doctor disponibles
+                    let estatus = data.estatus; // Array de todos los estatus
                     console.log('data_cita: ',data_cita)
+                    
                     $('#nombre_cita').val(data_cita.nombre_cita);
                     $('#fecha_cita').val(data_cita.fecha_cita);
                     $('#hora_cita').val(data_cita.hora_cita);
                     $('#paciente').val(data_cita.paciente);
+                    $('#paciente_id').val(data_cita.paciente_id);
+
+                    let estatusActual = data_cita.estatu_id;
+        
+                    function updateSelectOptions() {
+                        // Limpiar las opciones existentes
+                        $('#estatus_cita').empty();
+
+                        // Agregar nuevas opciones
+                        estatus.forEach(element => {
+                            $('#estatus_cita').append(
+                                $('<option>').val(element.id).text(element.estatu)
+                            );
+                        });
+
+                        // Seleccionar el valor 2
+                        $('#estatus_cita').val(estatusActual);
+                    }
+
+                    // Llamar a la función para actualizar las opciones
+                    updateSelectOptions();
+
                     
+
+                    let observacion_cita = $('.observacion_cita').val()
+                    if (observacion_cita.length  < 0 || observacion_cita.length == 0 || observacion_cita == null) {
+                        $('#observacion_cita').val('NINGUNA OBSERVACIÓN POR EL MOMENTO')
+                    }else{
+                        $('#observacion_cita').val(data_cita.observacion)
+                        
+                    }
+                        
                     // Establece la acción del formulario al URL para la actualización
-                    // $('#editForm').attr('action', update); 
+                    $('#editForm').attr('action', update); 
 
                     // Muestra el modal
                     $('#editModal').modal('show'); 

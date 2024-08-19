@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('citmedic.password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('pacientes_ausentes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('paciente_id');
+            $table->string('nombre_cita',100);
+            $table->timestamp('fecha_registro')->nullable()->useCurrent();
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('citmedic.password_reset_tokens');
+        Schema::dropIfExists('pacientes_ausentes');
     }
 };
