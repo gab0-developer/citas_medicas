@@ -3,31 +3,32 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Panel de control</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
 
     <div class="cards-dashboard d-flex">
 
         @component('components.dashboard.cards')
             @slot('title','Cantidad de pacientes')
             @slot('cantidad',$cantidadPacientes)
-            {{-- @slot('title','Cantidad de pacientes') --}}
         @endcomponent
         @component('components.dashboard.cards')
-            @slot('title','Cantidad de pacientes')
+            @slot('title','Cantidad de Doctores')
             @slot('cantidad',$cantidadDoctores)
-            {{-- @slot('title','Cantidad de pacientes') --}}
         @endcomponent
         @component('components.dashboard.cards')
-            @slot('title','Cantidad de pacientes')
+            @slot('title','Cantidad de citas')
             @slot('cantidad',$cantidadCitasMedicas)
-            {{-- @slot('title','Cantidad de pacientes') --}}
         @endcomponent
+        
     </div>
-    
+    <div class="chartjs-dashboard">
+        <canvas  id="solicitudMonth"></canvas>
+        <br>
+        <canvas  id="solicitudyears"></canvas>
+    </div>
 @stop
 
 @section('css')
@@ -37,12 +38,29 @@
 @stop
 
 @section('js')
-    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+    <script src="{{asset('assets/js/chart.js')}}"></script>
     <script> 
-        Swal.fire({
-  title: "Good job!",
-  text: "You clicked the button!",
-  icon: "success"
-});
+        document.addEventListener('DOMContentLoaded', () => {
+            const months = ['none','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+            const solicitudMonth = document.getElementById('solicitudMonth').getContext('2d');
+            const solicitudyears = document.getElementById('solicitudyears').getContext('2d');
+            // data de laravel:
+            let solicitudesMonth = {!! json_encode($solicitudesMonth->pluck('mes')) !!}
+            let solicitudesMonthCantidad = {!! json_encode($solicitudesMonth->pluck('cantidad')) !!}
+
+            let solicitudesYearAnno = {!! json_encode($solicitudesYear->pluck('year')) !!}
+            let solicitudesYearCantidad = {!! json_encode($solicitudesYear->pluck('cantidad')) !!}
+
+            let MesesNombre = solicitudesMonth.map((item) => months[parseInt(item)])
+
+            Bar_Chartjs(solicitudMonth,MesesNombre,'Solicitudes mensual',solicitudesMonthCantidad,'Solicitud mensual')
+
+            Bar_Chartjs(solicitudyears,solicitudesYearAnno,'Solicitudes anuales',solicitudesYearCantidad,'Solicitud anual')
+            
+            
+
+            
+        })
+        
     </script>
 @stop
