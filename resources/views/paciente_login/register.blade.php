@@ -7,8 +7,8 @@
 </style>
 
 <div class="card">
-    <div class="title-form w-100">
-        <h5 class="card-title">Card title</h5>
+    <div class="title-form w-100  d-flex justify-content-center" id="modal-encabezado">
+        <h3 class="">Registrarse</h3>
     </div>
     <div class="card-body">
         <form action="{{route('paciente.store')}}" method="post" class="w-100">
@@ -178,6 +178,8 @@
     </div>
 </div>
 
+
+<link rel="stylesheet" href="{{ asset('assets/css/app.css')}}"> 
 
 {{-- script js --}}
 <script>

@@ -27,4 +27,28 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
+    // public function handle(Request $request, Closure $next, string ...$guards): Response
+    // {
+    //     $guards = empty($guards) ? [null] : $guards;
+
+    //     foreach ($guards as $guard) {
+    //         if (Auth::guard($guard)->check()) {
+    //             $user = Auth::user();
+
+    //             // Redireccionar según el rol del usuario
+    //             if ($user->hasRole('paciente')) {
+    //                 return redirect()->route('solicitudcita.index'); // Redirigir al paciente
+    //             } elseif ($user->hasRole('doctor')) {
+    //                 return redirect()->route('doctorcitapendiente.index'); // Redirigir al doctor
+    //             } elseif ($user->hasRole('administrador')) {
+    //                 return redirect()->route('dashboard.index'); // Redirigir al administrador
+    //             }
+
+    //             // Redireccionar por defecto si no se encuentra un rol específico
+    //             return redirect(RouteServiceProvider::HOME);
+    //         }
+    //     }
+
+    //     return $next($request);
+    // }
 }

@@ -14,7 +14,7 @@
     
     {{-- CITAS REALIZADAS --}}
     <div class="btn-cita-atendidos my-2">
-        <button class="btn btn-success"><a href="{{route('doctorcitaatendido.index')}}" class="text text-white">Citas atendidas</a></button>
+        <button class="btn btn-success"><a href="{{route('doctorcitaatendido.index')}}" class="text text-white">Ver citas atendidas</a></button>
     </div>
     <div class="card">
         <div class="card-body">
@@ -133,14 +133,12 @@
                 theme: "classic"
             });
 
+            // Evento onchenge cambio de estatus
             $('#estatus_cita').on('change', function(event){
-                console.log('evento change',event.target.value)
                 if (event.target.value == "3") {
                     $('#mesagge_delete_cita').show()
-                    console.log('La cita eliminada ')
                 }else{
                     $('#mesagge_delete_cita').hide()
-                    console.log('La cita no eliminada')
                 }
             })
             // ---------EVENTO BOTON DE EDITAR--------------------------

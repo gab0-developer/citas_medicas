@@ -11,8 +11,8 @@
         box-shadow: 2px 2px 6px #08264b3c;
     }
     .cars-count-data{
-        background-image: linear-gradient(to right top, #bff870, #a6fb7c, #8afd89, #68fe99, #34ffaa);
-        /* background-image: linear-gradient(to left bottom, #006bd7, #008ae4, #00a3db, #00b8c5, #00c9ac); */
+        /* background-image: linear-gradient(to right top, #bff870, #a6fb7c, #8afd89, #68fe99, #34ffaa); */
+        background-image: linear-gradient(to left bottom, #006bd7, #008ae4, #00a3db, #00b8c5, #00c9ac);
         /* background-image: linear-gradient(to left bottom, #ff0000, #ff4a00, #ff6d00, #ff8900, #ffa200); */
         /* background-image: linear-gradient(to left bottom, #2800ff, #0079ff, #00aaff, #00d1fa, #08f1d9); */
     }

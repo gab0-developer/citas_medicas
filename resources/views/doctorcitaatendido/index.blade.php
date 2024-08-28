@@ -14,7 +14,7 @@
 
     {{-- CITAS REALIZADAS --}}
     <div class="btn-cita-pendientes my-2">
-        <button class="btn btn-danger"><a href="{{route('doctorcitapendiente.index')}}" class="text text-white">Citas pendientes</a></button>
+        <button class="btn btn-danger"><a href="{{route('doctorcitapendiente.index')}}" class="text text-white">Ver citas pendientes</a></button>
     </div>
     <div class="card">
         <div class="card-body">

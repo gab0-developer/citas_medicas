@@ -10,7 +10,10 @@
     @else
 
         {{-- Use the default preloader content --}}
-        <p>cargando...</p>
+        {{-- <p>cargando...</p> --}}
+        <img src="{{asset('assets/img/Logo-Medical-G.png')}}" alt="Logo G"
+             width="{{ config('adminlte.preloader.img.width', 60) }}"
+             style="animation-iteration-count:infinite;">
         {{-- <img src="{{ asset(config('adminlte.preloader.img.path', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
              class="img-circle {{ config('adminlte.preloader.img.effect', 'animation__shake') }}"
              alt="{{ config('adminlte.preloader.img.alt', 'AdminLTE Preloader Image') }}"

@@ -24,10 +24,14 @@
         @endcomponent
         
     </div>
-    <div class="chartjs-dashboard">
-        <canvas  id="solicitudMonth"></canvas>
+    <div class="chartjs-dashboard mt-2">
+        <div class="chartjs">
+            <canvas  id="solicitudMonth"></canvas>
+        </div>
         <br>
-        <canvas  id="solicitudyears"></canvas>
+        <div class="chartjs">
+            <canvas  id="solicitudyears"></canvas>
+        </div>
     </div>
 @stop
 

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Citas medicas',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,9 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>C</b>itas <b>M</b>edicas',
+    // 'logo' => '<b>Admin</b>LTE',
+    'logo_img' => 'assets/img/Logo-Medical-G.png',
+    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img_class' => 'brand-image',
+    // 'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
@@ -86,7 +89,8 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'assets/img/Logo-Medical-G.png',
+            // 'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -113,7 +117,8 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'assets/img/Logo-Medical-G.png',
+            // 'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -257,7 +262,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -292,7 +297,6 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
     */
-
     'menu' => [
         // Navbar items:
         [
@@ -306,36 +310,45 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'Buscar...',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'Buscar...',
+        // ],
+        // [
+        //     'text' => 'blog',
+        //     'url' => 'admin/blog',
+        //     'can' => 'manage-blog',
+        // ],
+        // [
+        //     'text' => 'pages',
+        //     'url' => 'admin/pages',
+        //     'icon' => 'far fa-fw fa-file',
+        //     'label' => 4,
+        //     'label_color' => 'success',
+        // ],
         ['header' => 'account_settings'],
         [
             'text' => 'inicio',
             'url' => 'dashboard',
             'icon' => 'fas fa-fw fa-user',
+            'role' => 'administrador'
         ],
         [
             'text' => 'Realizar cita medica',
             'route' => 'solicitudcita.index',
+            'role' => 'paciente|administrador'
             // 'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Citas medicas',
+            'text' => 'Citas medicas pendientes',
             'route' => 'doctorcitapendiente.index',
+            'role' => 'doctor'
+            // 'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Citas medicas atendidas',
+            'route' => 'doctorcitaatendido.index',
+            'role' => 'doctor'
             // 'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -356,13 +369,16 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'ADMINISTRACIÓN DE USUARIOS',
-            'can' => 'admin avanzada'
+            'can' => 'admin avanzada',
+            'role' => 'administrador'
             
         ],
         [
             'text' => 'Roles y permisos',
             'icon' => 'fas fa-fw fa-share',
             'can' => 'admin avanzada',
+            'role' => 'administrador',
+
             'submenu' => [
                 // [
                 //     'text' => 'level_one',
@@ -372,67 +388,71 @@ return [
                     'text' => 'Usuarios',
                     'route' => 'userspermisos.index',
                     'icon' => 'fas fa-fw fa-user',
-                    'can' => 'admin avanzada'
+                    'can' => 'admin avanzada',
+                    'role' => 'administrador'
                 ],
                 [
                     'text' => 'Roles',
                     'route' => 'roles.index',
                     // 'icon' => 'fas fa-fw fa-user',
-                    'can' => 'admin avanzada'
+                    'can' => 'admin avanzada',
+                    'role' => 'administrador'
                 ],
                 [
                     'text' => 'Permisos',
                     'route' => 'permisos.index',
                     // 'icon' => 'fas fa-fw fa-user',
-                    'can' => 'admin avanzada'
+                    'can' => 'admin avanzada',
+                    'role' => 'administrador'
                 ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        'can' => 'admin avanzada',
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
+                // [
+                //     'text' => 'level_one',
+                //     'url' => '#',
+                //     'submenu' => [
+                //         'can' => 'admin avanzada',
+                //         'role' => 'administrador',
+                //         [
+                //             'text' => 'level_two',
+                //             'url' => '#',
+                //         ],
+                //         [
+                //             'text' => 'level_two',
+                //             'url' => '#',
+                //             'submenu' => [
+                //                 [
+                //                     'text' => 'level_three',
+                //                     'url' => '#',
+                //                 ],
+                //                 [
+                //                     'text' => 'level_three',
+                //                     'url' => '#',
+                //                 ],
+                //             ],
+                //         ],
+                //     ],
+                // ],
+                // [
+                //     'text' => 'level_one',
+                //     'url' => '#',
+                // ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
+        // ['header' => 'labels'],
+        // [
+        //     'text' => 'important',
+        //     'icon_color' => 'red',
+        //     'url' => '#',
+        // ],
+        // [
+        //     'text' => 'warning',
+        //     'icon_color' => 'yellow',
+        //     'url' => '#',
+        // ],
+        // [
+        //     'text' => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url' => '#',
+        // ],
     ],
 
     /*
@@ -448,6 +468,7 @@ return [
     */
 
     'filters' => [
+        App\Services\MenuFilters\RoleMenuFilter::class, // Filtro personalizado de roles
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
