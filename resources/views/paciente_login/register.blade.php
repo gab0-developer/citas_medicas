@@ -9,7 +9,8 @@
     }
     .form-paciente .card-body{
         filter: blur(5);
-        background-color: #ffffffcc;
+        background-color: #ffffff;
+        border-radius: 12px;
     }
     .title-form{
         width: 100%;
@@ -17,18 +18,23 @@
         /* background: #fff; */
     }
     .card-form-paciente{
-        border-radius: 50px;
-        box-shadow: 2px 2px 6px #07284b46;
+        box-shadow: 2px 2px 8px #07284b46;
         /* margin-top: 5rem; */
     }
 </style>
 
 <div class="container form-paciente">
     <div class="card-form-paciente">
-        <div class="title-form w-100  d-flex justify-content-center" id="modal-encabezado">
+        <!-- <div class="title-form w-100  d-flex justify-content-center" id="modal-encabezado">
             <h3 class="">Registrarse</h3>
-        </div>
+        </div> -->
         <div class="card-body">
+            <div class="title-form-paci d-flex flex-column justify-content-center align-items-center ">
+                <div class="img-logo">
+                    <img src="{{ asset('assets/img/Logo-Medical-G.png')}}" style="width: 50px;" alt="">
+                </div>
+                <h3 class="" style="color: #008ae4;"><strong>Registrarse</strong></h3>
+            </div>
             <form action="{{route('paciente.store')}}" method="post" class="w-100">
                 @csrf
                 <div class="sub-title">
