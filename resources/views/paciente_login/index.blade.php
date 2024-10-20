@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('vendor/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 
-<div class="container mt-3">
+<div class="container container-form-paciente pt-3">
     @include('paciente_login.register')
 </div>
 

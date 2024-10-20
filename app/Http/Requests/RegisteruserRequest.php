@@ -25,7 +25,15 @@ class RegisteruserRequest extends FormRequest
     {
         return [
             'password' => ['required', 'string', $this->passwordRules(),'confirmed'],
-            'sexo_paciente' => 'required'
+            'nombre_paciente' => ['required', 'string', 'min:3'],
+            'sexo_paciente' => ['required','string'],
+            'apellido_paciente' => ['required', 'string', 'min:3'],
+            'fecha_nacimiento_paciente' => ['required', 'date'],
+            'email_paciente' => ['required','email','unique:ciudadanos,correo', 'min:3'],
+            'tlf_paciente' => ['required', 'string', 'unique:ciudadanos,nro_telefono', 'min:3'],
+            'estado_paciente' => ['required'],
+            'municipio_paciente' => ['required'],
+            'parroquia_paciente' => ['required'],
         ];
     }
 }
