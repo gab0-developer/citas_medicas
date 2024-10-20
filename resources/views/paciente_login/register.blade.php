@@ -221,7 +221,7 @@
                 </div>
     
                 <div class="btn-submit btn-success w-100">
-                    <input type="submit" name="submit_paciente" class="btn btn-success w-100" value="Registrarse">
+                    <input type="submit" name="submit_paciente" class="btn btn-primary w-100" value="Registrarse">
                 </div>
                 
             </form>
