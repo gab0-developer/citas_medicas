@@ -1,11 +1,11 @@
 <style>
     .container-form-paciente{
         max-width: 100%;
-        height: 100%;
+        min-height: 100vh;
         /* background-color: red; */
         background: url("{{ asset('assets/img/fondocita-register.png')}}");
         background-size: cover;
-        background-repeat: repeat;
+        background-repeat: no-repeat;
     }
     .form-paciente .card-body{
         filter: blur(5);

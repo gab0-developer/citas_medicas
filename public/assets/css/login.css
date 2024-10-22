@@ -1,0 +1,19 @@
+.container-form-login{
+    width: 100%;
+    min-height: 100vh;
+    /* background-color: red; */
+     /* background-color: red; */
+     background: url('../img/fondo-login.png');
+     background-size: cover;
+     background-repeat: no-repeat;
+}
+.caja-form-login{
+    width: 25%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
+    position: absolute;
+    top: 28%;
+    left: 25%;
+}
