@@ -41,7 +41,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="number" name="cedula_doctor" id="cedula_doctor" class="form-control" placeholder="Cédula" aria-label="Cédula" aria-describedby="basic-addon1" value="{{ old('cedula_doctor') }}">
+                                    <input type="number" name="cedula_doctor" id="cedula_doctor" class="form-control" placeholder="Cédula" aria-label="Cédula" aria-describedby="basic-addon1" value="{{ old('cedula_doctor') }}" readonly required>
                                 </div>
                                 {{-- <p>message error</p> --}}
                                 @error('cedula_doctor') {{-- indicamos el nombre del campo --}}
@@ -93,7 +93,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="sexo_doctor" id="sexo_doctor" class="form-control" aria-label="sexo" aria-describedby="basic-addon1">
+                                    <input type="text" name="sexo_doctor" id="sexo_doctor" class="form-control" aria-label="sexo" aria-describedby="basic-addon1" readonly required>
                                 </div>
                                 {{-- <p>message error</p> --}}
                                 @error('sexo_doctor') {{-- indicamos el nombre del campo --}}
@@ -189,7 +189,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="estado_doctores" id="estado_doctores" class="form-control" aria-label="sexo" aria-describedby="basic-addon1">
+                                    <input type="text" name="estado_doctores" id="estado_doctores" class="form-control" aria-label="sexo" aria-describedby="basic-addon1" readonly required>
                                 </div>
                                 {{-- <p>message error</p> --}}
                                 @error('estado_doctores') {{-- indicamos el nombre del campo --}}
@@ -205,7 +205,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="parroquia_doctores" id="parroquia_doctores" class="form-control" aria-label="sexo" aria-describedby="basic-addon1">
+                                    <input type="text" name="parroquia_doctores" id="parroquia_doctores" class="form-control" aria-label="sexo" aria-describedby="basic-addon1" readonly required>
                                 </div>
                                 {{-- <p>message error</p> --}}
                                 @error('parroquia_doctores') {{-- indicamos el nombre del campo --}}
@@ -221,7 +221,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="municipio_doctores" id="municipio_doctores" class="form-control" aria-label="sexo" aria-describedby="basic-addon1">
+                                    <input type="text" name="municipio_doctores" id="municipio_doctores" class="form-control" aria-label="sexo" aria-describedby="basic-addon1" readonly required>
                                 </div>
                                 {{-- <p>message error</p> --}}
                                 @error('municipio_doctores') {{-- indicamos el nombre del campo --}}
@@ -248,7 +248,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="mpps_doctor" id="mpps_doctor" class="form-control" placeholder="mpps del doctor" aria-label="mpps del doctor" aria-describedby="basic-addon1" value="{{ old('mpps_doctor') }}">
+                                    <input type="text" name="mpps_doctor" id="mpps_doctor" class="form-control" placeholder="mpps del doctor" aria-label="mpps del doctor" aria-describedby="basic-addon1" value="{{ old('mpps_doctor') }}" readonly required>
                                 </div>
                                 {{-- <p>message error</p> --}}
                                 @error('mpps_doctor') {{-- indicamos el nombre del campo --}}

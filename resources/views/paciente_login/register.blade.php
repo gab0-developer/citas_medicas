@@ -214,7 +214,7 @@
                     <div class="input-group mb-3 mr-2">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-unlock-alt"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-unlock-alt"></i></span>
                             </div>
                             <input type="password" name="password_confirmation" class="form-control"  aria-label="contraseña paciente" aria-describedby="basic-addon1" value="{{ old('password_confirmation') }}">
                         </div>

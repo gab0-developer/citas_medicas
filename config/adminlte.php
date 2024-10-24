@@ -357,17 +357,17 @@ return [
             // 'icon' => 'fas fa-fw fa-user',
             'role' => 'administrador'
         ],
-        [
-            'text' => 'profile',
-            // 'route' => 'admin/settings',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // [
+        //     'text' => 'profile',
+        //     // 'route' => 'admin/settings',
+        //     'url' => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url' => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         ['header' => 'ADMINISTRACIÓN DE USUARIOS',
             'can' => 'admin avanzada',
             'role' => 'administrador'

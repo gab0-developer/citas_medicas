@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SolicitudCitaRequest;
 use App\Models\EspecialidadesTipocita;
 use App\Models\Estatus;
 use App\Models\Paciente;
@@ -41,7 +42,7 @@ class SolicitudCitaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SolicitudCitaRequest $request)
     {
         //
         //Acceder al usuario atenticado

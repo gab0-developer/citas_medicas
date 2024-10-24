@@ -19,22 +19,27 @@
                 <div class="inputs">
     
                     <div class="group-input d-flex my-2">
-                        <div class="input-group flex-nowrap">
-                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
-                            <input type="text" name="nombre_permiso" class="form-control" placeholder="Nombre de permiso" aria-label="Nombre del rol" aria-describedby="addon-wrapping"  value="{{ old('nombre_permiso') }}" >
+                        <div class="input-group mr-2">
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                <input type="text" name="nombre_permiso" class="form-control" placeholder="Nombre de permiso" aria-label="Nombre del rol" aria-describedby="addon-wrapping"  value="{{ old('nombre_permiso') }}" >
+                            </div>
+                            @error('nombre_permiso') {{-- indicamos el nombre del campo --}}
+                                {{-- indicamos el mensaje de error  --}}
+                                <p style="color:red;">{{$message}}</p>
+                            @enderror
                         </div>
-                        @error('nombre_permiso') {{-- indicamos el nombre del campo --}}
-                            {{-- indicamos el mensaje de error  --}}
-                            <p style="color:red;">{{$message}}</p>
-                        @enderror
-                        <div class="input-group flex-nowrap">
-                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
-                            <input type="text" name="descripcion_permiso" class="form-control" placeholder="Descripción del permiso" aria-label="Descripción del permiso" aria-describedby="addon-wrapping"  value="{{ old('descripcion_permiso') }}" >
+                        <div class="input-group">
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                <input type="text" name="descripcion_permiso" class="form-control" placeholder="Descripción del permiso" aria-label="Descripción del permiso" aria-describedby="addon-wrapping"  value="{{ old('descripcion_permiso') }}" >
+                            </div>
+                            @error('descripcion_permiso') {{-- indicamos el nombre del campo --}}
+                                {{-- indicamos el mensaje de error  --}}
+                                <p style="color:red;">{{$message}}</p>
+                            @enderror
                         </div>
-                        @error('descripcion_permiso') {{-- indicamos el nombre del campo --}}
-                            {{-- indicamos el mensaje de error  --}}
-                            <p style="color:red;">{{$message}}</p>
-                        @enderror
+                        
                         
                         
                     </div> 

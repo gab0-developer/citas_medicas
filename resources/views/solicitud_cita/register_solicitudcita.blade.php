@@ -33,7 +33,10 @@
                                     @endforeach
                                  
                                 </select>
-                                {{-- <p>message error</p> --}}
+                                @error('tipocita') {{-- indicamos el nombre del campo --}}
+                                    {{-- indicamos el mensaje de error  --}}
+                                    <p style="color:red;">{{$message}}</p>
+                                @enderror
                             </div>
                     </div>
                    
@@ -46,26 +49,34 @@
                 </div>
                 <div class="container-inputs d-flex">
                     <div class="input-group mb-3 mr-2">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-unlock-alt"></i></span>
-                            </div>
+                        <div class="input-group">
                             <input type="date" name="fecha_cita" class="form-control"  aria-label="fecha de cita" aria-describedby="basic-addon1" value="{{ old('fecha_cita') }}">
                         </div>
-                        {{-- <p>message error</p> --}}
+                        @error('fecha_cita') {{-- indicamos el nombre del campo --}}
+                            {{-- indicamos el mensaje de error  --}}
+                            <p style="color:red;">{{$message}}</p>
+                        @enderror
                     </div>
-                    <select class="form-control" name="hora_cita" id="hora_cita" value="{{ old('hora_cita') }}">
-                        <option selected disabled>Seleccionar Hora de su cita</option>
-                        <option value="8:00 AM">8:00 AM</option>
-                        <option value="9:00 AM">9:00 AM</option>
-                        <option value="10:00 AM">10:00 AM</option>
-                        <option value="11:30 AM">11:30 AM</option>
-                        <option value="1:30 PM">1:30 PM</option>
-                        <option value="2:30 PM">2:30 PM</option>
-                        <option value="3:30 PM">3:30 PM</option>
-                        <option value="4:30 PM">4:30 PM</option>
-                        <option value="5:30 PM">5:30 PM</option>
-                    </select>
+                    <div class="input-group mb-3 mr-3">
+                        <div class="form-group w-100">
+                            <select class="form-control" name="hora_cita" id="hora_cita" value="{{ old('hora_cita') }}">
+                                <option selected disabled readonly>Seleccionar Hora de su cita</option>
+                                <option value="8:00 AM">8:00 AM</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:30 AM">11:30 AM</option>
+                                <option value="1:30 PM">1:30 PM</option>
+                                <option value="2:30 PM">2:30 PM</option>
+                                <option value="3:30 PM">3:30 PM</option>
+                                <option value="4:30 PM">4:30 PM</option>
+                                <option value="5:30 PM">5:30 PM</option>
+                            </select
+                            @error('hora_cita') {{-- indicamos el nombre del campo --}}
+                            {{-- indicamos el mensaje de error  --}}
+                                <p style="color:red;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
 
             </div>

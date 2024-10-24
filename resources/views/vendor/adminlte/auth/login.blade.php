@@ -31,7 +31,7 @@
     @endif
     <div class="container-form-login">
         <div class="caja-form-login">
-            <div class="title-form-paci text-center py-2">
+            <div class="title-form-paci text-center py -2">
                 <h4 class="" style="color: #008ae4;"><strong>Iniciar Sesión</strong></h4>
             </div>
             <form action="{{ $login_url }}" class="login-form" method="post">

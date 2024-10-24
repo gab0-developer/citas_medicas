@@ -57,12 +57,12 @@
                                 </button>
 
                                 {{-- <a href="{{ route('roles.edit', $rol) }}">{!! $btnEdit !!}</a>                                 --}}
-                                <form action="{{route('roles.destroy',$rol)}}" method="post" class="form_eliminar">
+                                {{-- <form action="{{route('roles.destroy',$rol)}}" method="post" class="form_eliminar">
                                     @csrf
                                     @method('delete')
                                     {!! $btnDelete !!}
                                 </form>
-                                {!! $btnDetails !!}
+                                {!! $btnDetails !!} --}}
                                 {{-- {{$client->id}} --}}
                             </td>
                         </tr>
