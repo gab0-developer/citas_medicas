@@ -75,7 +75,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'citmedic', // agregado por mi
-            'schema' => 'citmedic',  //agregado por mi-se supone que al indicar aca el esquema por defecto las tablas que trae laravel se migraran al esquema definido
+            'schema' => env('DB_SCHEMA', 'public'),  //agregado por mi-se supone que al indicar aca el esquema por defecto las tablas que trae laravel se migraran al esquema definido
             'sslmode' => 'prefer',
         ],
 
