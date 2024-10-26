@@ -74,8 +74,8 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
-            'search_path' => 'citmedic', // agregado por mi
-            'schema' => 'citmedic',  //agregado por mi-se supone que al indicar aca el esquema por defecto las tablas que trae laravel se migraran al esquema definido
+            'search_path' => 'public', // agregado por mi
+            'schema' => 'public',  //agregado por mi-se supone que al indicar aca el esquema por defecto las tablas que trae laravel se migraran al esquema definido
             'sslmode' => 'prefer',
         ],
 
