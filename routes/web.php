@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+})->name('homepage');
 
 // FORMULARIO DE REGISTRO DE PACIENTE
 Route::resource('/userpaciente', PacienteUserController::class)->names('paciente');
