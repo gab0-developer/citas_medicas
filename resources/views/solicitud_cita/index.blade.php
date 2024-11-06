@@ -8,9 +8,11 @@
 
 @section('content')
 
-    <div>
-        @include('solicitud_cita.register_solicitudcita')
-    </div>
+    @role('paciente')
+        <div>
+            @include('solicitud_cita.register_solicitudcita')
+        </div>
+    @endrole
     
     {{-- CITAS REALIZADAS --}}
 
