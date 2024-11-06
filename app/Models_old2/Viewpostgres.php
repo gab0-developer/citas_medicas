@@ -46,14 +46,5 @@ class Viewpostgres extends Model
         $dataview =DB::table('doctores_view')->where('id_ciudadano',$id_ciudadano)->get();
         return  $dataview;
     }
-    public function useradministrador_view($id_ciudadano = null)
-    {
-        if ($id_ciudadano == null) {
-            return DB::table('useradministrador_view')->get();
-        }
-
-        $dataview =DB::table('useradministrador_view')->where('id_ciudadano',$id_ciudadano)->get();
-        return  $dataview;
-    }
 
 }

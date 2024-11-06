@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\AsignarpermisoUsersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoctorAdminController;
@@ -41,7 +42,8 @@ Route::middleware([
         Route::resource('/permisos', PermisoController::class)->names('permisos');
         Route::resource('/userspermisos', AsignarpermisoUsersController::class)->names('userspermisos');
         Route::resource('/doctores', DoctorAdminController::class)->names('doctor');
-
+        
+        Route::resource('/administrador', AdministradorController::class)->names('administrador');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     });
 

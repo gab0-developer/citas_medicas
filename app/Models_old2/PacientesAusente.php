@@ -6,7 +6,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,8 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property int $paciente_id
- * @property Carbon|null $fecha_registro
- * @property string|null $nombre_cita
  * 
  * @property Paciente $paciente
  *
@@ -27,8 +24,7 @@ class PacientesAusente extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'paciente_id' => 'int',
-		'fecha_registro' => 'datetime'
+		'paciente_id' => 'int'
 	];
 
 	protected $fillable = [

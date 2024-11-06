@@ -38,7 +38,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property Collection|Doctore[] $doctores
  * @property Collection|Paciente[] $pacientes
- * @property Collection|UserAdmin[] $user_admins
  *
  * @package App\Models
  */
@@ -121,10 +120,5 @@ class User extends Authenticatable
 	public function pacientes()
 	{
 		return $this->hasMany(Paciente::class);
-	}
-
-	public function user_admins()
-	{
-		return $this->hasMany(UserAdmin::class);
 	}
 }

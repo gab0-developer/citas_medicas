@@ -374,6 +374,12 @@ return [
             
         ],
         [
+            'text' => 'Administrador de sistema',
+            'route' => 'administrador.index',
+            // 'icon' => 'fas fa-fw fa-user',
+            'role' => 'administrador'
+        ],
+        [
             'text' => 'Roles y permisos',
             'icon' => 'fas fa-fw fa-share',
             'can' => 'admin avanzada',
