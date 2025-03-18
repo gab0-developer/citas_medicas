@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Tabla de Contenidos
+- [Tabla de Contenidos](#tabla-de-contenidos)
+- [About Laravel](#about-laravel)
+- [Learning Laravel](#learning-laravel)
+- [Laravel Sponsors](#laravel-sponsors)
+  - [Premium Partners](#premium-partners)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [Security Vulnerabilities](#security-vulnerabilities)
+- [License](#license)
+- [Pasos para usar el sistema.](#pasos-para-usar-el-sistema)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -66,10 +78,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-## Pasos para usar plantilla.
+## Pasos para usar el sistema.
 
-1. Ejecutar "composer install" para bajar todas las dependencias y plugins que trae ya la plantilla.
+1. Ejecutar el siguiente comando para bajar todas las dependencias y plugins que trae la plantilla.
+   ```bash 
+   composer install
 2. Crear archivo ".env" en la raiz del proyecto.
 3. Copiar el contenido del archivo ".env.example" y pegar en el archivo ".env" ya creado.
-4. instalar y ejecutar nodejs: "npm i"
-5. aplicar buil de las dependencias: "npm run build".
+4. instalar y ejecutar node.js : 
+   ```bash 
+    npm install
+5. aplicar buil de las dependencias:
+   ```bash 
+   npm run build
+
+
