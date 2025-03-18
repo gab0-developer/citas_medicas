@@ -1,0 +1,32 @@
+:root{
+    --bg-color-app: linear-gradient(to left bottom, #006bd7, #008ae4, #00a3db, #00b8c5, #00c9ac);
+    /* background-image: linear-gradient(to left bottom, #006bd7, #008ae4, #00a3db, #00b8c5, #00c9ac);
+        background-image: linear-gradient(to left bottom, #ff0000, #ff4a00, #ff6d00, #ff8900, #ffa200);
+        background-image: linear-gradient(to left bottom, #2800ff, #0079ff, #00aaff, #00d1fa, #08f1d9); 
+        linear-gradient(to right top, #bff870, #a6fb7c, #8afd89, #68fe99, #34ffaa) ;*/
+    
+}
+#modal-encabezado{
+    background: var(--bg-color-app);
+}
+.modal-header{
+    background: var(--bg-color-app);
+}
+#modal-header-css{
+    position: relative;
+}
+#modal-header-css .modal-title{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.chartjs{
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px #07284b46;
+    /* box-shadow: 2px 2px 6px #ffffffcc; */
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
