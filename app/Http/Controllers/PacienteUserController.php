@@ -68,8 +68,8 @@ class PacienteUserController extends Controller
             'user_id' => $user->id
         ]);
 
-        return redirect('/');
-        // return redirect()->route('pacientes.index')->with('success', 'Paciente registrado exitosamente');
+        // return redirect('/');
+        return redirect('/')->with('success', "$ciudadano->nombre_completo esta registrado exitosamente");
     }
 
     /**
