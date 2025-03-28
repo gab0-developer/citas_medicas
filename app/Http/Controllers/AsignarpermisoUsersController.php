@@ -77,5 +77,9 @@ class AsignarpermisoUsersController extends Controller
     public function destroy(string $id)
     {
         //
+        $usuario = User::find($id);
+        $usuario->delete();
+        
+        return redirect()->back()->with('success', "Usuario: $usuario->name eliminado permanente");
     }
 }

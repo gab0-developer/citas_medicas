@@ -93,7 +93,7 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <input type="date" name="fecha_nacimiento_paciente" class="form-control"  aria-label="Fecha de nacimiento" aria-describedby="basic-addon1" value="{{ old('fecha_nacimiento_paciente') }}">
+                            <input type="date" name="fecha_nacimiento_paciente" class="form-control" title="FECHA DE NACIMIENTO"  aria-label="Fecha de nacimiento" aria-describedby="basic-addon1" value="{{ old('fecha_nacimiento_paciente') }}">
                         </div>
                         @error('fecha_nacimiento_paciente') {{-- indicamos el nombre del campo --}}
                             {{-- indicamos el mensaje de error  --}}

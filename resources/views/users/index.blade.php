@@ -59,7 +59,7 @@
                                 </button>
 
                                 {{-- <a href="{{ route('roles.edit', $user) }}">{!! $btnEdit !!}</a>                                 --}}
-                                <form action="{{route('roles.destroy',$user)}}" method="post" class="form_eliminar">
+                                <form action="{{route('userspermisos.destroy',$user)}}" method="post" class="form_eliminar">
                                     @csrf
                                     @method('delete')
                                     {!! $btnDelete !!}
@@ -101,16 +101,63 @@
 @stop
 
 @section('js')
-    <script> 
+    <script>
+        $(document).ready(function() {
 
-        $(document).ready(function(){
+             // color clasico en select multiple
+             $('.js-example-basic-multiple').select2({
+                theme: "classic"
+            });
+            // ---------BOTON DE EDITAR
+            $('.btn-edit').on('click', function(event) {
+                event.preventDefault();
+                var url = $(this).data('url');
+                var update = $(this).data('update');
+    
+                // Realiza una solicitud AJAX para obtener los datos del rol
+                $.get(url, function(data) {
+                    let user = data.user; // Array de todos los user disponibles
+                    let roles = data.roles; // Array de todos los permisos disponibles
+                    let rolesAsignadosuser = data.rolesAsignadosuser; // Array de IDs de permisos asignados
+                    
+                    // Suponiendo que 'data' contiene los datos del rol
+                    $('#roleName').val(user.name); // Asigna el nombre del rol al campo correspondiente
 
-            // --------BOTON DE ELIMINAR 
+                    // Limpia las opciones previas del select
+                    $('#select2_permiso').empty();
+
+                    // Itera sobre el array de permisos y agrega cada uno al select
+                    roles.map((rol) =>  {
+                        // Crea una nueva opción
+                        let option = $('<option></option>').attr('value', rol.id).text(rol.name);
+
+                        // Marca la opción como seleccionada si está en el array de permisos asignados
+                        if (rolesAsignadosuser.includes(rol.id)) {
+                            option.prop('selected', true);
+                        }
+
+                        // Añade la opción al select
+                        $('#select2_permiso').append(option);
+                    });
+
+                    // Inicializa Select2 o actualiza el estado si ya está inicializado
+                    $('#select2_permiso').select2({theme: "classic"});
+
+                    // Establece la acción del formulario al URL para la actualización
+                    $('#editForm').attr('action', update); 
+
+                    // Muestra el modal
+                    $('#editModal').modal('show'); 
+                });
+            });
+
+            // ELIMINAR LIBRO
             $('.form_eliminar').submit(function(e){
-                e.preventDefault();
+                e.preventDefault()
+                console.log('eliminar')
                 Swal.fire({
-                    title: "Esta seguro de eliminar el cliente?",
-                    text: "Este cliente será eliminado permanentemente!",
+                    title: "Esta seguro de eliminar el libro?",
+                    text: "Este libro será eliminado permanentemente!",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
@@ -130,8 +177,8 @@
                         
                     }
                 });
-            });
-        })
-
+            })
+            
+        });
     </script>
 @stop
